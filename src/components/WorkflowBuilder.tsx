@@ -25,7 +25,7 @@ const statusConfig: Record<StepStatus, { icon: string; color: string }> = {
 
 export function WorkflowBuilder({ data, onAction }: AgentComponentProps) {
   const { title, steps: initialSteps } = data as unknown as WorkflowData
-  const [steps, setSteps] = useState<WorkflowStep[]>(initialSteps)
+  const [steps, setSteps] = useState<WorkflowStep[]>(initialSteps ?? [])
   const [running, setRunning] = useState(false)
 
   const runWorkflow = async () => {

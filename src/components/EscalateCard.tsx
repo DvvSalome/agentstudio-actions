@@ -42,8 +42,8 @@ export function EscalateCard({ data, onAction }: AgentComponentProps) {
       <div className="grid grid-cols-2 gap-3 mb-4">
         <div className="bg-gray-900 rounded p-3">
           <p className="text-xs text-gray-500 mb-1">On-call engineer</p>
-          <p className="text-sm text-blue-400">{incident.oncallEngineer.name}</p>
-          <p className="text-xs text-gray-600">{incident.oncallEngineer.handle}</p>
+          <p className="text-sm text-blue-400">{incident.oncallEngineer?.name ?? '—'}</p>
+          <p className="text-xs text-gray-600">{incident.oncallEngineer?.handle ?? '—'}</p>
         </div>
         <div className="bg-gray-900 rounded p-3">
           <p className="text-xs text-gray-500 mb-1">Slack channel</p>
@@ -56,14 +56,14 @@ export function EscalateCard({ data, onAction }: AgentComponentProps) {
           onClick={() => onAction({
             type: 'escalate_confirmed',
             label: 'Incident escalated',
-            payload: { incidentId: incident.incidentId, engineer: incident.oncallEngineer.handle },
+            payload: { incidentId: incident.incidentId, engineer: incident.oncallEngineer?.handle },
             requiresConfirmation: true,
           })}
           className={`px-4 py-2 rounded text-xs font-bold transition-colors ${
             isP1 ? 'bg-red-600 hover:bg-red-500' : 'bg-yellow-700 hover:bg-yellow-600'
           }`}
         >
-          Page {incident.oncallEngineer.name}
+          Page {incident.oncallEngineer?.name ?? 'On-call'}
         </button>
         <button
           onClick={() => onAction({

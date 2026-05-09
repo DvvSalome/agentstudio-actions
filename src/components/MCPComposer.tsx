@@ -29,17 +29,17 @@ const toolColors: Record<string, string> = {
 
 export function MCPComposer({ data, onAction }: AgentComponentProps) {
   const { availableTools, suggestedWorkflow } = data as unknown as MCPData
-  const [steps] = useState(suggestedWorkflow)
+  const [steps] = useState(suggestedWorkflow ?? [])
 
   return (
     <div className="rounded-lg border border-purple-800 bg-purple-950/20 p-5 font-mono">
       <div className="flex items-center gap-2 mb-4">
         <span className="text-purple-400 font-bold text-sm">&#9889; MCP Composer</span>
-        <span className="text-xs text-gray-500">{availableTools.length} tools available</span>
+        <span className="text-xs text-gray-500">{availableTools?.length ?? 0} tools available</span>
       </div>
 
       <div className="flex gap-2 flex-wrap mb-4">
-        {availableTools.map(t => (
+        {(availableTools ?? []).map(t => (
           <span
             key={t.name}
             className={`px-2 py-1 bg-gray-900 rounded-full border text-xs ${
