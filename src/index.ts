@@ -36,4 +36,5 @@ export const actionComponents: AgentComponent[] = [
   },
 ]
 
+export { mockRollback, mockEscalate, mockMCPComposer, mockWorkflow } from './mock-data'
 export type { AgentComponent, AgentComponentProps }
