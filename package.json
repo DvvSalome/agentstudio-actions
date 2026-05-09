@@ -14,6 +14,7 @@
   },
   "files": ["dist"],
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsup src/index.ts --format cjs,esm --dts --external react --external react-dom",
     "dev": "tsup src/index.ts --format cjs,esm --dts --external react --external react-dom --watch",
     "type-check": "tsc --noEmit"
