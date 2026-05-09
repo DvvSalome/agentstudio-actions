@@ -37,7 +37,7 @@ export function RollbackCard({ data, onAction }: AgentComponentProps) {
       <div className="mb-4">
         <p className="text-xs text-gray-500 mb-2">Changes being reverted</p>
         <ul className="space-y-1">
-          {rollback.changes.map((c, i) => (
+          {(rollback.changes ?? []).map((c, i) => (
             <li key={i} className="text-xs text-gray-400 flex gap-2">
               <span className="text-red-500">-</span>{c}
             </li>
@@ -46,8 +46,8 @@ export function RollbackCard({ data, onAction }: AgentComponentProps) {
       </div>
 
       <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
-        <span>&#9201; ~{rollback.estimatedTime}</span>
-        <span>&#128101; {rollback.affectedUsers.toLocaleString()} users</span>
+        <span>&#9201; ~{rollback.estimatedTime ?? 'calculating...'}</span>
+        <span>&#128101; {rollback.affectedUsers?.toLocaleString() ?? 'N/A'} users</span>
       </div>
 
       {!confirming ? (
@@ -68,7 +68,7 @@ export function RollbackCard({ data, onAction }: AgentComponentProps) {
       ) : (
         <div className="bg-orange-900/50 border border-orange-700 rounded p-3">
           <p className="text-xs text-orange-300 mb-3">
-            &#9888; This will rollback {rollback.service} and may briefly affect {rollback.affectedUsers.toLocaleString()} users. Confirm?
+            &#9888; This will rollback {rollback.service} and may briefly affect {rollback.affectedUsers?.toLocaleString() ?? 'some'} users. Confirm?
           </p>
           <div className="flex gap-2">
             <button
