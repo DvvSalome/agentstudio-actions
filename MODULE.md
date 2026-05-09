@@ -12,7 +12,7 @@ You own the **action library**. Your job: build React components that let users 
 ## Setup
 
 ```bash
-git clone https://github.com/JuanGomez-Sequal/agentstudio-actions
+git clone https://github.com/juanjogr07/agentstudio-actions
 cd agentstudio-actions
 npm install
 bash sync-context.sh   # pull latest types from M1

@@ -1,6 +1,6 @@
 # M2 (agentstudio-board) API Reference
 
-For use by M3 developers. Source: JuanGomez-Sequal/agentstudio-board
+For use by M3 developers. Source: juanjogr07/agentstudio-board
 
 ## Overview
 

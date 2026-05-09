@@ -1,6 +1,6 @@
 # M1 (agentstudio-core) API Reference
 
-For use by M3 developers. Source: JuanGomez-Sequal/agentstudio-core
+For use by M3 developers. Source: juanjogr07/agentstudio-core
 
 ## Your Role as M3
 
